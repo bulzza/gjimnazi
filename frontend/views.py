@@ -1,3 +1,4 @@
+from django.http import HttpResponse
 from django.shortcuts import render, redirect,get_object_or_404
 from django.contrib.auth import authenticate, login, logout
 from django.contrib import messages
@@ -7,6 +8,10 @@ from django.views.decorators.csrf import csrf_exempt
 from .models import *  # Import your model
 from backend.models import *
 from django.contrib.auth.decorators import login_required
+
+from .models import ContactMessage
+from django.core.mail import send_mail
+from django.views.decorators.csrf import csrf_exempt
 
 # Index/  main page
 def index(request):
@@ -36,12 +41,31 @@ def news(request):
 
     return render(request, 'news.html', context)
 
+@csrf_exempt
 def contact(request):
-     
+    if request.method == 'POST':
+        name = request.POST.get('name')
+        email = request.POST.get('email')
+        message = request.POST.get('message')
+        
+        # Save the contact information to the database
+        contact_message = ContactMessage(name=name, email=email, message=message)
+        contact_message.save()
+        
+        # Send email
+        subject = 'Gjimnazi Contact Notification'
+        body = f'Name: {name}\nEmail: {email}\nMessage: {message}'
+        from_email = 'bulzaabdilii@gmail.com'  # Update with your email
+        to_email = ['agoonn98@gmail.com']  # Update with recipient email(s)
+        
+        send_mail(subject, body, from_email, to_email, fail_silently=False)
+        
+        return HttpResponse('Thank you for your message! We will get back to you soon.')
+    
     context = {
-        'page_name': 'Contact Us'
+        'contact': 'Contact Us'
     }
-
+    
     return render(request, 'contact.html', context)
 
 # login page

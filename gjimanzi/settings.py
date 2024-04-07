@@ -12,7 +12,7 @@ https://docs.djangoproject.com/en/5.0/ref/settings/
 
 import os
 from pathlib import Path
-
+from django.core.mail import get_connection
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -52,6 +52,21 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
+
+
+# Email Backend Configuration
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+
+# SMTP Configuration
+EMAIL_HOST = 'smtp.gmail.com'  # Update with your SMTP server address
+EMAIL_PORT = 587  # Update with your SMTP port number
+EMAIL_HOST_USER = 'bulzaabdilii@gmail.com'  # Update with your email address
+EMAIL_HOST_PASSWORD = 'cvtyetcysghjtlym'  # Update with your email password
+EMAIL_USE_TLS = True  # Set it to True if your SMTP server uses TLS
+EMAIL_USE_SSL = False  # Set it to True if your SMTP server uses SSL
+
+# Default email settings
+DEFAULT_FROM_EMAIL = 'bulzaabdilii@gmail.com'
 
 ROOT_URLCONF = 'gjimanzi.urls'
 
