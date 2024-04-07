@@ -1,0 +1,117 @@
+{% extends 'base.html' %}
+
+{% block title %} {{page_name}} {% endblock %} 
+
+{% block table %}   
+
+<section class="content"  id="tableSection">
+    <div class="container-fluid">
+      <div class="card">
+          <div class="card-header bg-primary">
+            <h3 class="card-title mt-2">
+              <i class="fas fa-pager"></i>
+              {{ page_name}} Table
+            </h3>
+      
+            <div class="float-right">
+              <div class="row">
+              <div class="col-lg-2">
+                <input type="text" class="form-control" placeholder="Search">
+              </div>
+              <div class="col-lg-2">
+                <select  class="form-control">
+                  <option value="id">ID</option>
+                  <option value="title">Title</option>
+                  <option value="created_at">Created Date</option>
+                </select>
+              </div>
+              <div class="col-lg-3">
+                <select class="form-control">
+                  <option value="withTrashed">All</option>
+                  <option value="noTrashed">Not Trashed</option>
+                  <option value="onlyTrashed">Only Trashed</option>
+                </select>
+              </div>
+              <div class="col-lg-3">
+                <select class="form-control">
+                  <option value="1">Ascending</option>
+                  <option value="0">Descending</option>
+                </select>
+              </div>
+              <div class="col-lg-2">
+                <select class="form-control">
+                  <option>10</option>
+                  <option>25</option>
+                  <option>50</option>
+                  <option>100</option>
+                </select>
+              </div>
+      
+            </div>
+      
+            </div>
+          </div>
+          <!-- /.card-header -->
+          <div class="card-body">
+           
+            <div class="float-right mb-2">
+                <a href="/cms/aboutus/addAboutus/" class="btn btn-primary">
+                  <i class="fas fa-plus"></i>
+                  Create New
+                </a>
+            </div>
+            <table class="table table-bordered table-responsive-sm">
+              <thead>
+                  <tr>
+                      <th style="width: 10px">#</th>
+                      <th>ID</th>
+                      <th>Title</th>
+                      <th>Description</th>
+                      <th>Image</th>
+                      <th>Created At</th>
+                      <th>Action</th>
+                  </tr>
+              </thead>
+              <tbody>
+                  {% if aboutuss %}
+                      {% for aboutus in aboutuss %}
+                      <tr >
+                          <td><input type="checkbox"></td>
+                          <td>{{ aboutus.id }}</td>
+                          <td>{{ aboutus.title }}</td>
+                          <td>{{ aboutus.description }}</td>
+                          <td><img class="rounded" src="" width="100px"></td>
+                          <td>{{ aboutus.created_at }}</td>
+                          <td>
+                              <a href="/cms/aboutus/editAboutus/{{aboutus.id}}" class="btn btn-sm btn-primary edit-btn">
+                                  <i class="fas fa-edit"></i>
+                              </a>
+                              <a  href="/cms/aboutus/deleteAboutus/{{aboutus.id}}" class="btn btn-sm btn-danger">
+                                  <i class="fas fa-trash-alt"></i>
+                              </a>
+                          </td>
+                      </tr>
+                      {% endfor %}
+                  {% else %}
+                      <tr>
+                          <td colspan="7">
+                              <div class="alert alert-warning" role="alert">
+                                  Whoops! No {{ page_name }} were found 🙁
+                              </div>
+                          </td>
+                      </tr>
+                  {% endif %}
+              </tbody>
+          </table>
+          
+          
+          </div>
+          <!-- /.card-body -->
+         
+        </div>
+    </div><!--/. container-fluid -->
+</section>
+  
+{% endblock %}
+
+

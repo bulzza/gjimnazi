@@ -1,0 +1,707 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <title>{% block title %} {{ page_name}} {% endblock %}</title>
+  <meta content="" name="description">
+  <meta content="" name="keywords">
+
+  {% load static %}
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="{% static 'vendor/aos/aos.css' %}" rel="stylesheet">
+  <link href="{% static 'vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+  <link href="{% static 'vendor/bootstrap-icons/bootstrap-icons.css' %}" rel="stylesheet">
+  <link href="{% static 'vendor/boxicons/css/boxicons.min.css' %}" rel="stylesheet">
+  <link href="{% static 'vendor/glightbox/css/glightbox.min.css' %}" rel="stylesheet">
+  <link href="{% static 'vendor/swiper/swiper-bundle.min.css' %}" rel="stylesheet">
+
+  <!-- Template Main CSS File -->
+  <link href="{% static 'css/style.css' %}" rel="stylesheet">
+
+</head>
+
+<body>
+
+  <!-- Header -->
+  <header id="header" class="fixed-top d-flex align-items-center">
+    <div class="container d-flex align-items-center">
+
+      <div class="logo me-auto">
+        <h1><a href="">Gjimnazi</a></h1>
+        <!-- Uncomment below if you prefer to use an image logo -->
+        <!-- <a href="/"><img src="img/logo.png" alt="" class="img-fluid"></a>-->
+      </div>
+
+      <nav id="navbar" class="navbar order-last order-lg-0">
+        <ul>
+          <li><a class="nav-link scrollto active" href="/#hero">Home</a></li>
+          <li><a class="nav-link scrollto " href="/#about">About Us</a></li>`
+          <li class="dropdown"><a href="#"><span>More of Us</span> <i class="bi bi-chevron-down"></i></a>
+            <ul>
+              <li><a class="nav-link scrollto" href="/#directions">Directions</a></li>
+              <li><a class="nav-link scrollto" href="/#team">Team</a></li>
+              <li><a class="nav-link scrollto" href="/#faq">FAQ</a></li>
+              <li class="dropdown"><a href="#"><span>More</span> <i class="bi bi-chevron-right"></i></a>
+                <ul>
+                  <li><a href="/#timeline">Timeline</a></li>
+                  <li><a href="/#gallery">Gallery</a></li>
+                  <li><a href="/news/">News</a></li>
+                </ul>
+              </li>
+            </ul>
+          </li>
+          <li><a class="nav-link scrollto" href="/contact/">Contact</a></li>
+        </ul>
+        <i class="bi bi-list mobile-nav-toggle"></i>
+      </nav><!-- .navbar -->
+
+      <div class="header-social-links d-flex align-items-center">
+        <a href="#" class="facebook"><i class="bi bi-facebook"></i></a>
+      </div>
+
+    </div>
+  </header><!-- End Header -->
+  {% block content %} 
+
+    {% block breadcrumbs %}
+
+    {% endblock %}
+    <!-- Hero Section -->
+    
+    {% block hero %} 
+    <section id="hero">
+
+      <div class="container">
+      {% for hero in heroes %}
+      <div class="row">
+        <div class="col-lg-6 pt-5 pt-lg-0 order-2 order-lg-1 d-flex flex-column justify-content-center" data-aos="fade-up">
+          <div>
+            <h1>{{hero.title}}</h1>
+            <h2>{{hero.description}}</h2>
+            <a href="#about" class="btn-get-started scrollto">Get Started</a>
+          </div>
+        </div>
+        <div class="col-lg-6 order-1 order-lg-2 hero-img" data-aos="fade-left">
+          <img src="{% static 'img/hero-img.png' %}" class="img-fluid" alt="">
+        </div>
+      </div>
+      {% endfor %}
+      </div>
+  
+    </section><!-- End Hero -->
+    {% endblock %}
+  
+    <main id="main">
+  
+  
+      <!-- Cta Section -->
+      {% for cta in ctas %}
+      <section id="cta" class="cta">
+        <div class="container">
+  
+          <div class="row" data-aos="zoom-in">
+            <div class="col-lg-9 text-center text-lg-start">
+              <h3>{{cta.title}}</h3>
+              <p>{{cta.description}}</p>
+            </div>
+            <div class="col-lg-3 cta-btn-container text-center">
+              <a class="cta-btn align-middle" href="#">Call To Action</a>
+            </div>
+          </div>
+        </div>
+      </section>
+      {% endfor %}
+      <!-- End Cta Section -->
+
+
+      <!-- About Section -->
+      {% for aboutus in aboutuss%} 
+      <section id="about" class="about">
+        <div class="container">
+  
+          <div class="row">
+            <div class="col-lg-6" data-aos="zoom-in">
+              <img src="{% static 'img/about.jpg' %} " class="img-fluid" alt="">
+            </div>
+            <div class="col-lg-6 d-flex flex-column justify-contents-center" data-aos="fade-left">
+              <div class="content pt-4 pt-lg-0">
+                <h3>{{aboutus.title}}</h3>
+                <p>{{aboutus.description}}</p>
+              </div>
+            </div>
+          </div>
+  
+        </div>
+      </section>
+      {% endfor %}
+      <!-- End About Section -->
+  
+      <!-- Features Section -->
+      <section id="features" class="features">
+        <div class="container">
+  
+          <div class="row">
+            <div class="col-lg-6 mt-2 mb-tg-0 order-2 order-lg-1">
+              <ul class="nav nav-tabs flex-column">
+                <li class="nav-item" data-aos="fade-up">
+                  <a class="nav-link active show" data-bs-toggle="tab" href="#tab-1">
+                    <h4>Modi sit est</h4>
+                    <p>Quis excepturi porro totam sint earum quo nulla perspiciatis eius.</p>
+                  </a>
+                </li>
+                <li class="nav-item mt-2" data-aos="fade-up" data-aos-delay="100">
+                  <a class="nav-link" data-bs-toggle="tab" href="#tab-2">
+                    <h4>Unde praesentium sed</h4>
+                    <p>Voluptas vel esse repudiandae quo excepturi.</p>
+                  </a>
+                </li>
+                <li class="nav-item mt-2" data-aos="fade-up" data-aos-delay="200">
+                  <a class="nav-link" data-bs-toggle="tab" href="#tab-3">
+                    <h4>Pariatur explicabo vel</h4>
+                    <p>Velit veniam ipsa sit nihil blanditiis mollitia natus.</p>
+                  </a>
+                </li>
+                <li class="nav-item mt-2" data-aos="fade-up" data-aos-delay="300">
+                  <a class="nav-link" data-bs-toggle="tab" href="#tab-4">
+                    <h4>Nostrum qui quasi</h4>
+                    <p>Ratione hic sapiente nostrum doloremque illum nulla praesentium id</p>
+                  </a>
+                </li>
+              </ul>
+            </div>
+            <div class="col-lg-6 order-1 order-lg-2" data-aos="zoom-in">
+              <div class="tab-content">
+                <div class="tab-pane active show" id="tab-1">
+                  <figure>
+                    <img src="{% static 'img/features-1.png' %}" alt="" class="img-fluid">
+                  </figure>
+                </div>
+                <div class="tab-pane" id="tab-2">
+                  <figure>
+                    <img src="{% static 'img/features-2.png' %}" alt="" class="img-fluid">
+                  </figure>
+                </div>
+                <div class="tab-pane" id="tab-3">
+                  <figure>
+                    <img src="{% static 'img/features-3.png' %}" alt="" class="img-fluid">
+                  </figure>
+                </div>
+                <div class="tab-pane" id="tab-4">
+                  <figure>
+                    <img src="{% static 'img/features-4.png' %}" alt="" class="img-fluid">
+                  </figure>
+                </div>
+              </div>
+            </div>
+          </div>
+  
+        </div>
+      </section><!-- End Features Section -->
+  
+      <!-- Counts Section -->
+      <section id="counts" class="counts">
+        <div class="container" data-aos="fade-up">
+  
+          <div class="row">
+  
+            <div class="col-lg-3 col-md-6">
+              <div class="count-box">
+                <i class="bi bi-emoji-smile"></i>
+                <span data-purecounter-start="0" data-purecounter-end="232" data-purecounter-duration="1" class="purecounter"></span>
+                <p>Happy Clients</p>
+              </div>
+            </div>
+  
+            <div class="col-lg-3 col-md-6 mt-5 mt-md-0">
+              <div class="count-box">
+                <i class="bi bi-journal-richtext"></i>
+                <span data-purecounter-start="0" data-purecounter-end="521" data-purecounter-duration="1" class="purecounter"></span>
+                <p>Projects</p>
+              </div>
+            </div>
+  
+            <div class="col-lg-3 col-md-6 mt-5 mt-lg-0">
+              <div class="count-box">
+                <i class="bi bi-headset"></i>
+                <span data-purecounter-start="0" data-purecounter-end="1463" data-purecounter-duration="1" class="purecounter"></span>
+                <p>Hours Of Support</p>
+              </div>
+            </div>
+  
+            <div class="col-lg-3 col-md-6 mt-5 mt-lg-0">
+              <div class="count-box">
+                <i class="bi bi-people"></i>
+                <span data-purecounter-start="0" data-purecounter-end="15" data-purecounter-duration="1" class="purecounter"></span>
+                <p>Hard Workers</p>
+              </div>
+            </div>
+  
+          </div>
+  
+        </div>
+      </section><!-- End Counts Section -->
+  
+      <!-- Why Us Section -->
+      <section id="why-us" class="why-us">
+        <div class="container">
+  
+          <div class="row">
+            <div class="col-lg-4 d-flex align-items-stretch" data-aos="fade-right">
+              <div class="content">
+                <h3>Why Choose Bethany for your company website?</h3>
+                <p>
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Duis aute irure dolor in reprehenderit
+                  Asperiores dolores sed et. Tenetur quia eos. Autem tempore quibusdam vel necessitatibus optio ad corporis.
+                </p>
+                <div class="text-center">
+                  <a href="#" class="more-btn">Learn More <i class="bx bx-chevron-right"></i></a>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-8 d-flex align-items-stretch">
+              <div class="icon-boxes d-flex flex-column justify-content-center">
+                <div class="row">
+                  <div class="col-xl-4 d-flex align-items-stretch" data-aos="zoom-in" data-aos-delay="100">
+                    <div class="icon-box mt-4 mt-xl-0">
+                      <i class="bx bx-receipt"></i>
+                      <h4>Corporis voluptates sit</h4>
+                      <p>Consequuntur sunt aut quasi enim aliquam quae harum pariatur laboris nisi ut aliquip</p>
+                    </div>
+                  </div>
+                  <div class="col-xl-4 d-flex align-items-stretch" data-aos="zoom-in" data-aos-delay="200">
+                    <div class="icon-box mt-4 mt-xl-0">
+                      <i class="bx bx-cube-alt"></i>
+                      <h4>Ullamco laboris ladore pan</h4>
+                      <p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt</p>
+                    </div>
+                  </div>
+                  <div class="col-xl-4 d-flex align-items-stretch" data-aos="zoom-in" data-aos-delay="300">
+                    <div class="icon-box mt-4 mt-xl-0">
+                      <i class="bx bx-images"></i>
+                      <h4>Labore consequatur</h4>
+                      <p>Aut suscipit aut cum nemo deleniti aut omnis. Doloribus ut maiores omnis facere</p>
+                    </div>
+                  </div>
+                </div>
+              </div><!-- End .content-->
+            </div>
+          </div>
+  
+        </div>
+      </section><!-- End Why Us Section -->
+  
+      <!-- Services Section -->
+      <section id="services" class="services section-bg">
+        <div class="container">
+  
+          <div class="section-title" data-aos="fade-up">
+            <h2>Services</h2>
+  
+          </div>
+  
+          <div class="row">
+            <div class="col-md-6 col-lg-3 d-flex align-items-stretch mb-5 mb-lg-0" data-aos="zoom-in">
+              <div class="icon-box icon-box-pink">
+                <div class="icon"><i class="bx bxl-dribbble"></i></div>
+                <h4 class="title"><a href="">Lorem Ipsum</a></h4>
+                <p class="description">Voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate</p>
+              </div>
+            </div>
+  
+            <div class="col-md-6 col-lg-3 d-flex align-items-stretch mb-5 mb-lg-0" data-aos="zoom-in" data-aos-delay="100">
+              <div class="icon-box icon-box-cyan">
+                <div class="icon"><i class="bx bx-file"></i></div>
+                <h4 class="title"><a href="">Sed ut perspiciatis</a></h4>
+                <p class="description">Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla</p>
+              </div>
+            </div>
+  
+            <div class="col-md-6 col-lg-3 d-flex align-items-stretch mb-5 mb-lg-0" data-aos="zoom-in" data-aos-delay="200">
+              <div class="icon-box icon-box-green">
+                <div class="icon"><i class="bx bx-tachometer"></i></div>
+                <h4 class="title"><a href="">Magni Dolores</a></h4>
+                <p class="description">Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim</p>
+              </div>
+            </div>
+  
+            <div class="col-md-6 col-lg-3 d-flex align-items-stretch mb-5 mb-lg-0" data-aos="zoom-in" data-aos-delay="300">
+              <div class="icon-box icon-box-blue">
+                <div class="icon"><i class="bx bx-world"></i></div>
+                <h4 class="title"><a href="">Nemo Enim</a></h4>
+                <p class="description">At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum</p>
+              </div>
+            </div>
+  
+          </div>
+  
+        </div>
+      </section><!-- End Services Section -->
+  
+      <!--Timeline Section-->
+      <div class="timeline" id="timeline"> 
+  
+        <div class="section-title" data-aos="fade-up">
+          <h2>Timeline</h2>
+
+        </div>
+  
+        <div class="timeline__event  animated fadeInUp delay-3s timeline__event--type1">
+          <div class="timeline__event__icon ">
+            <i class="lni-cake"></i>
+  
+          </div>
+          <div class="timeline__event__date">
+            7:30 - 13:05
+          </div>
+          <div class="timeline__event__content ">
+            <div class="timeline__event__title">
+              Ndërrimi i parë - Mëngjes
+            </div>
+            <div class="timeline__event__description">
+              <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Vel, nam! Nam eveniet ut aliquam ab asperiores, accusamus iure veniam corporis incidunt reprehenderit accusantium id aut architecto harum quidem dolorem in!</p>
+            </div>
+          </div>
+        </div>
+        <div class="timeline__event animated fadeInUp delay-2s timeline__event--type2">
+          <div class="timeline__event__icon">
+            <i class="lni-burger"></i>
+  
+          </div>
+          <div class="timeline__event__date">
+            13:30 - 19:05
+          </div>
+          <div class="timeline__event__content">
+            <div class="timeline__event__title">
+              Ndërrimi i dytë- Pas dreke
+            </div>
+            <div class="timeline__event__description">
+              <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Vel, nam! Nam eveniet ut aliquam ab asperiores, accusamus iure veniam corporis incidunt reprehenderit accusantium id aut architecto harum quidem dolorem in!</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!--End Timeline Section-->
+  
+      <section id="directions" class="directions">
+  
+        <div class="section-title" data-aos="fade-up">
+          <h2>Directions</h2>
+
+        </div>
+  
+      <div class="container">
+
+        <div class="row">
+          <div class="col-md-3 col-sm-6 col-xs-12">
+            <div class="card card-1">
+              <div class="cover item-a">
+                <h1>Matematiko<br>Natyror</h1>
+                <span class="top-right">A</span>
+                <div class="card-back back-1">
+                  <a href="inner-page.html" class="btn-get-started scrollto">View detail</a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-3 col-sm-6 col-xs-12">
+            <div class="card card-2">
+              <div class="cover item-b">
+                <h1>Matematiko<br>Natyror</h1>
+                <span class="top-right">B</span>
+                <div class="card-back back-2">
+                  <a href="inner-page.html" class="btn-get-started scrollto">View detail</a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-3 col-sm-6 col-xs-12">
+            <div class="card card-3">
+              <div class="cover item-c">
+                <h1>Shkenca<br>Humanitare</h1>
+                <span class="top-right">A</span>
+                <div class="card-back back-3">
+                  <a href="inner-page.html" class="btn-get-started scrollto">View detail</a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-3 col-sm-6 col-xs-12">
+            <div class="card card-4">
+              <div class="cover item-d">
+                <h1>Shkenca<br>Humanitare</h1>
+                <span class="top-right">B</span>
+                <div class="card-back back-4">
+                  <a href="inner-page.html" class="btn-get-started scrollto" >View detail</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+      </div>
+      </section>
+    
+      <!-- Team Section -->
+      <section id="team" class="team">
+        <div class="container">
+  
+          <div class="section-title" data-aos="fade-up">
+            <h2>Team</h2>
+  
+          </div>
+  
+          <div class="row">
+  
+            <div class="col-lg-4 col-md-6">
+              <div class="member" data-aos="zoom-in">
+                <div class="pic"><img src="{% static 'img/team/team-1.jpg' %}" class="img-fluid" alt=""></div>
+                <div class="member-info">
+                  <h4>Walter White</h4>
+                  <span>Chief Executive Officer</span>
+                  <div class="social">
+                    <a href=""><i class="bi bi-twitter"></i></a>
+                    <a href=""><i class="bi bi-facebook"></i></a>
+                    <a href=""><i class="bi bi-instagram"></i></a>
+                    <a href=""><i class="bi bi-linkedin"></i></a>
+                  </div>
+                </div>
+              </div>
+            </div>
+  
+            <div class="col-lg-4 col-md-6">
+              <div class="member" data-aos="zoom-in" data-aos-delay="100">
+                <div class="pic"><img src="{% static 'img/team/team-2.jpg' %}" class="img-fluid" alt=""></div>
+                <div class="member-info">
+                  <h4>Sarah Jhonson</h4>
+                  <span>Product Manager</span>
+                  <div class="social">
+                    <a href=""><i class="bi bi-twitter"></i></a>
+                    <a href=""><i class="bi bi-facebook"></i></a>
+                    <a href=""><i class="bi bi-instagram"></i></a>
+                    <a href=""><i class="bi bi-linkedin"></i></a>
+                  </div>
+                </div>
+              </div>
+            </div>
+  
+            <div class="col-lg-4 col-md-6">
+              <div class="member" data-aos="zoom-in" data-aos-delay="200">
+                <div class="pic"><img src="{% static 'img/team/team-3.jpg' %}" class="img-fluid" alt=""></div>
+                <div class="member-info">
+                  <h4>William Anderson</h4>
+                  <span>CTO</span>
+                  <div class="social">
+                    <a href=""><i class="bi bi-twitter"></i></a>
+                    <a href=""><i class="bi bi-facebook"></i></a>
+                    <a href=""><i class="bi bi-instagram"></i></a>
+                    <a href=""><i class="bi bi-linkedin"></i></a>
+                  </div>
+                </div>
+              </div>
+            </div>
+  
+          </div>
+  
+        </div>
+      </section><!-- End Team Section -->    
+  
+      <!-- F.A.Q Section -->
+      {% block faq %} 
+      <section id="faq" class="faq">
+        <div class="container">
+  
+          <div class="section-title" data-aos="fade-up">
+            <h2>Frequently Asked Questions</h2>
+          </div>
+  
+          <ul class="faq-list">
+  
+          {% for faq in faqs %}
+            <li>
+              <div data-bs-toggle="collapse" class="collapsed question" href="#faq{{faq.id}}">{{faq.question}}<i class="bi bi-chevron-down icon-show"></i><i class="bi bi-chevron-up icon-close"></i></div>
+              <div id="faq{{faq.id}}" class="collapse" data-bs-parent=".faq-list">
+                <p>{{faq.answer}}</p>
+              </div>
+            </li> 
+          {% endfor %}
+
+          </ul>
+  
+        </div>
+      </section>
+      {% endblock %}
+      <!-- End Frequently Asked Questions Section -->
+  
+      <section id="gallery" class="gallery">
+        <div class="section-title" data-aos="fade-up">
+          <h2>Gallery</h2>
+
+        </div>
+  
+        <div class="container text-center my-3">
+          <div class="row mx-auto my-auto justify-content-center">
+            <div id="recipeCarousel" class="carousel slide" data-bs-ride="carousel">
+              <div class="carousel-inner" role="listbox">
+                <div class="carousel-item active">
+                  <div class="col-md-3">
+                    <div class="gallery">
+                      <div class="gallery-img">
+                        <img src="{% static 'img/team/team-1.jpg' %}" class="img-fluid">
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="carousel-item">
+                  <div class="col-md-3">
+                    <div class="gallery">
+                      <div class="gallery-img">
+                        <img src="{% static 'img/team/team-2.jpg' %}" class="img-fluid">
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="carousel-item">
+                  <div class="col-md-3">
+                    <div class="gallery">
+                      <div class="gallery-img">
+                        <img src="{% static 'img/team/team-3.jpg' %}" class="img-fluid">
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="carousel-item">
+                  <div class="col-md-3">
+                    <div class="gallery">
+                      <div class="gallery-img">
+                        <img src="{% static 'img/team/team-1.jpg' %}" class="img-fluid">
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="carousel-item">
+                  <div class="col-md-3">
+                    <div class="gallery">
+                      <div class="gallery-img">
+                        <img src="{% static 'img/team/team-2.jpg' %}" class="img-fluid">
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="carousel-item">
+                  <div class="col-md-3">
+                    <div class="gallery">
+                      <div class="gallery-img">
+                        <img src="{% static 'img/team/team-3.jpg' %}" class="img-fluid">
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <a class="carousel-control-prev bg-transparent w-aut" href="#recipeCarousel" role="button" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+              </a>
+              <a class="carousel-control-next bg-transparent w-aut" href="#recipeCarousel" role="button" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+              </a>
+            </div>
+          </div>		
+        </div>
+      </section>
+    </main><!-- End #main -->
+
+
+  {% endblock %}
+  <!-- Footer -->
+  <footer id="footer">
+    <div class="footer-top">
+      <div class="container">
+        <div class="row">
+
+          <div class="col-lg-3 col-md-6">
+            <div class="footer-info">
+              <h3>Gjimnazi</h3>
+              <p>
+                A108 Adam Street <br>
+                NY 535022, USA<br><br>
+                <strong>Phone:</strong> +1 5589 55488 55<br>
+                <strong>Email:</strong> info@example.com<br>
+              </p>
+              <div class="social-links mt-3">
+                <a href="/login/" class="login"><i class="bi bi-person-fill"></i></i></a>
+                <a href="#" class="facebook"><i class="bx bxl-facebook"></i></a>
+                <a href="#" class="instagram"><i class="bx bxl-instagram"></i></a>
+                <a href="#" class="google-plus"><i class="bx bxl-skype"></i></a>
+                <a href="#" class="linkedin"><i class="bx bxl-linkedin"></i></a>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-2 col-md-6 footer-links">
+            <h4>Useful Links</h4>
+            <ul>
+              <li><i class="bx bx-chevron-right"></i> <a href="#">Home</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="#">About us</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="#">Services</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="#">Terms of service</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="#">Privacy policy</a></li>
+            </ul>
+          </div>
+
+          <div class="col-lg-3 col-md-6 footer-links">
+            <h4>Our Services</h4>
+            <ul>
+              <li><i class="bx bx-chevron-right"></i> <a href="#">Web Design</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="#">Web Development</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="#">Product Management</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="#">Marketing</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="#">Graphic Design</a></li>
+            </ul>
+          </div>
+
+          <div class="col-lg-4 col-md-6 footer-newsletter">
+            <h4>Our Newsletter</h4>
+            <p>Tamen quem nulla quae legam multos aute sint culpa legam noster magna</p>
+            <form action="" method="post">
+              <input type="email" name="email"><input type="submit" value="Subscribe">
+            </form>
+
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
+      <div class="copyright">
+        &copy; Copyright <strong><span>Gjimnazi</span></strong>. All Rights Reserved
+      </div>
+      <div class="credits">
+        
+        By <a href="">Bulza Abdili</a>
+      </div>
+    </div>
+  </footer><!-- End Footer -->
+
+  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+  <!-- Vendor JS Files -->
+  <script src="{% static 'vendor/purecounter/purecounter_vanilla.js' %}"></script>
+  <script src="{% static 'vendor/aos/aos.js' %}"></script>
+  <script src="{% static 'vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+  <script src="{% static 'vendor/glightbox/js/glightbox.min.js' %}"></script>
+  <script src="{% static 'vendor/isotope-layout/isotope.pkgd.min.js' %}"></script>
+  <script src="{% static 'vendor/swiper/swiper-bundle.min.js' %}"></script>
+
+  <!-- Template Main JS File -->
+  <script src="{% static 'js/main.js' %}"></script>
+
+</body>
+
+</html>

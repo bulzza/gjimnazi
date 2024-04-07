@@ -1,0 +1,57 @@
+{% extends 'base.html' %}
+
+{% block title %} {{page_name}} {% endblock %} 
+
+
+{% block add %} 
+
+<section class="content" id="addSection" >
+    <div class="container-fluid">
+        <div class="card card-primary">
+            <div class="card-header">
+              
+              <div class="float-right">
+                <a href="/cms/faq/" class="btn float-right text-white">
+                  <i class="fas fa-undo"></i>
+                  Go back
+                </a>
+              </div>
+            </div>
+            
+            <!-- form start -->
+           <!-- edit_form_template.html -->
+          <form method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            <div class="card-body">
+                <div class="row">
+                  <div class="col-sm-12 col-lg-11 col-md-12">
+                    <div class="form-group">
+                        <label>Question</label>
+                        <div class="form-control">
+                            {{ form.question }}
+                        </div>
+                      </div>
+                      <div class="col-sm-12 col-lg-11 col-md-12">
+                        <div class="form-group">
+                          <label>Question</label>
+                          <div class="from-control">
+                            {{ form.answer }}
+                          </div>
+                        </div>
+                      </div>
+                    
+                  </div>
+                </div>
+            </div>
+            
+            <div class="card-footer text-right" style="background:transparent;">
+                <a href="/cms/faq/" class="btn btn-danger cancel-btn">Cancel</a>
+                <button type="submit" class="btn btn-primary">Save</button>
+            </div>
+          </form>
+
+        </div>
+    </div>
+</section>
+
+{% endblock %}

@@ -1,0 +1,63 @@
+{% extends 'base.html' %}
+
+{% block title %} {{page_name}} {% endblock %} 
+
+
+{% block add %} 
+
+<section class="content" id="addSection" >
+    <div class="container-fluid">
+        <div class="card card-primary">
+            <div class="card-header">
+              
+              <div class="float-right">
+                <a href="/cms/aboutus/" class="btn float-right text-white">
+                  <i class="fas fa-undo"></i>
+                  Go back
+                </a>
+              </div>
+            </div>
+            
+            <!-- form start -->
+           <!-- edit_form_template.html -->
+          <form method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            <div class="card-body">
+                <div class="row">
+                  <div class="col-sm-12 col-lg-6">
+                    <div class="form-group">
+                        <label>Title</label>
+                        <div class="form-control">
+                            {{ form.title }}
+                        </div>
+                      </div>
+                      <div class="col-sm-12 col-lg-6 col-md-6">
+                        <div class="form-group">
+                          <label>Description</label>
+                          <div class="from-control">
+                            {{ form.description }}
+                          </div>
+                        </div>
+                      </div>
+                    
+                  </div>
+                  <div class="col-sm-12 col-lg-6 col-md-6">
+                    <div class="form-group custom-file">
+                        {{ form.image.label_tag }}: {{ form.image }}
+                    </div>
+                  </div>
+                 
+                </div>
+            </div>
+            
+            <div class="card-footer text-right" style="background:transparent;">
+                <a href="/cms/aboutus/" class="btn btn-danger cancel-btn">Cancel</a>
+                <button type="submit" class="btn btn-primary">Save</button>
+            </div>
+          </form>
+
+        </div>
+    </div>
+</section>
+
+{% endblock %}

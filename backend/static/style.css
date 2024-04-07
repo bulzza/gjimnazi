@@ -1,0 +1,12 @@
+.hide {
+    display: none;
+  }
+
+  .showDIV:hover + .hide {
+    position:absolute;
+    border-radius:4px;
+    padding:6px;
+    background-color: yellow;;
+    display: block;
+    color: black;
+  }
