@@ -19,3 +19,8 @@ class AboutusAdmin(admin.ModelAdmin):
 @admin.register(Faq)
 class FaqAdmin(admin.ModelAdmin):
     list_display = ('question', 'created_at', 'created_by')
+
+
+@admin.register(Gallery)
+class GalleryAdmin(admin.ModelAdmin):
+    list_display = ('description', 'created_at', 'created_by')

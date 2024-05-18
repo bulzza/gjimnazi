@@ -89,7 +89,7 @@
           </div>
         </div>
         <div class="col-lg-6 order-1 order-lg-2 hero-img" data-aos="fade-left">
-          <img src="{% static 'img/hero-img.png' %}" class="img-fluid" alt="">
+          <img src="{{hero.image.url}}">
         </div>
       </div>
       {% endfor %}
@@ -558,51 +558,18 @@
                     </div>
                   </div>
                 </div>
-                <div class="carousel-item">
-                  <div class="col-md-3">
-                    <div class="gallery">
-                      <div class="gallery-img">
-                        <img src="{% static 'img/team/team-2.jpg' %}" class="img-fluid">
-                      </div>
+               {% for gallery in gallerys %}
+               <div class="carousel-item">
+                <div class="col-md-3">
+                  <div class="gallery">
+                    <div class="gallery-img">
+                      <img src="{{gallery.image.url}}"  alt="{{gallery.description}}" class="img-fluid">
                     </div>
                   </div>
                 </div>
-                <div class="carousel-item">
-                  <div class="col-md-3">
-                    <div class="gallery">
-                      <div class="gallery-img">
-                        <img src="{% static 'img/team/team-3.jpg' %}" class="img-fluid">
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="carousel-item">
-                  <div class="col-md-3">
-                    <div class="gallery">
-                      <div class="gallery-img">
-                        <img src="{% static 'img/team/team-1.jpg' %}" class="img-fluid">
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="carousel-item">
-                  <div class="col-md-3">
-                    <div class="gallery">
-                      <div class="gallery-img">
-                        <img src="{% static 'img/team/team-2.jpg' %}" class="img-fluid">
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="carousel-item">
-                  <div class="col-md-3">
-                    <div class="gallery">
-                      <div class="gallery-img">
-                        <img src="{% static 'img/team/team-3.jpg' %}" class="img-fluid">
-                      </div>
-                    </div>
-                  </div>
-                </div>
+              </div>
+
+               {% endfor %}
               </div>
               <a class="carousel-control-prev bg-transparent w-aut" href="#recipeCarousel" role="button" data-bs-slide="prev">
                 <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -643,27 +610,16 @@
             </div>
           </div>
 
-          <div class="col-lg-2 col-md-6 footer-links">
+          <div class="col-lg-4 col-md-6 footer-links">
             <h4>Useful Links</h4>
             <ul>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Home</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">About us</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Services</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Terms of service</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Privacy policy</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="#">Gjimnazi</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="#">Ednevnik</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="#">Ministry of Education and Science</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="#">Bureau of Educational Development</a></li>
             </ul>
           </div>
 
-          <div class="col-lg-3 col-md-6 footer-links">
-            <h4>Our Services</h4>
-            <ul>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Web Design</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Web Development</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Product Management</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Marketing</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Graphic Design</a></li>
-            </ul>
-          </div>
 
           <div class="col-lg-4 col-md-6 footer-newsletter">
             <h4>Our Newsletter</h4>

@@ -99,3 +99,20 @@ class FaqForm(forms.ModelForm):
 
         }
 
+class GalleryForm(forms.ModelForm):
+    class Meta:
+        model = Gallery
+        fields = ['description', 'image', ]  # Include all fields you want to edit
+        widgets = { 
+
+            'description': Textarea(attrs={
+                'class': "form-control",
+                'style': 'width: 495px; margin-bottom:0px; background: transparent;',
+                'placeholder': 'Description',
+                'rows': 6,
+                
+                }),
+
+            
+
+        }

@@ -80,13 +80,13 @@
                           <td>{{ hero.id }}</td>
                           <td>{{ hero.title }}</td>
                           <td>{{ hero.description }}</td>
-                          <td><img class="rounded" src="" width="100px"></td>
+                          <td><img class="rounded" src="{{hero.image.url}}" width="100px"></td>
                           <td>{{ hero.created_at }}</td>
                           <td>
                               <a href="/cms/hero/editHero/{{hero.id}}" class="btn btn-sm btn-primary edit-btn">
                                   <i class="fas fa-edit"></i>
                               </a>
-                              <a  href="/cms/hero/deleteHero/{{hero.id}}" class="btn btn-sm btn-danger">
+                              <a href="/cms/hero/deleteHero/{{hero.id}}" class="btn btn-sm btn-danger">
                                   <i class="fas fa-trash-alt"></i>
                               </a>
                           </td>

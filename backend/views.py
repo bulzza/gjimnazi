@@ -197,55 +197,59 @@ class FaqClass:
         faq.delete()
         return redirect('/cms/faq/')
 
+class GalleryClass:
 
+    
+    @login_required(login_url='/login/')
+    def gallery(request):
+        querysetGallery = Gallery.objects.all()
+        context = {
+            'gallerys': querysetGallery,
+            'page_name': "Gallery"
+        }
+        return render(request, 'gallery/gallery.html', context)
 
-@login_required(login_url = '/login/')
-def offers(request):
+    @login_required(login_url='/login/')
+    def editGallery(request, pk):
+        context = {
+            'page_name': "Edit Gallery"
+        }
 
-    context = {
-        'page_name': "Offers"
-    }
-    return render(request, "offers/offers.html", context)
+        instance = get_object_or_404(Gallery, pk=pk)
+        if request.method == 'POST':
+            form = GalleryForm(request.POST, instance=instance)
+            if form.is_valid():
+                form.save()
+                return redirect('/cms/gallery/')  # Redirect to a success URL
+        else:
+            form = GalleryForm(instance=instance)
+        return render(request, 'gallery/editGallery.html', {'form': form, **context})
 
-@login_required(login_url = '/login/')
-def timeline(request):
+    @login_required(login_url='/login/')
+    def addGallery(request):
 
-    context = {
-        'page_name': "Timeline"
-    }
-    return render(request, "timeline/timeline.html", context)
+        context = {
+            'page_name': "Add Gallery"
+        }
+          
+        if request.method == 'POST':
+            form = GalleryForm(request.POST, request.FILES)
+            if form.is_valid():
+                gallery = form.save(commit=False)
+                gallery.created_by = request.user
+                gallery.save()
+                return redirect('/cms/gallery/')
+        else:
+            form = GalleryForm()
+        return render(request, 'gallery/addGallery.html', {'form': form, **context})
 
-@login_required(login_url = '/login/')
-def directions(request):
+    @login_required(login_url='/login/')
+    def deleteGallery(request, pk):
+        gallery = get_object_or_404(gallery, pk=pk)
+        gallery.delete()
+        return redirect('/cms/gallery/')
+  
 
-    context = {
-        'page_name': "Directions"
-    }
-    return render(request, "directions/directions.html", context)
-
-@login_required(login_url = '/login/')
-def team(request):
-
-    context = {
-        'page_name': "Team"
-    }
-    return render(request, "team/team.html", context)
-
-@login_required(login_url = '/login/')
-def gallery(request):
-
-    context = {
-        'page_name': "Gallery"
-    }
-    return render(request, "gallery/gallery.html", context)
-
-@login_required(login_url = '/login/')
-def news(request):
-
-    context = {
-        'page_name': "News and Updates"
-    }
-    return render(request, "news/news.html", context)
 
 @login_required(login_url = '/login/')
 def users(request):

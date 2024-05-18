@@ -8,7 +8,6 @@ from django.views.decorators.csrf import csrf_exempt
 from .models import *  # Import your model
 from backend.models import *
 from django.contrib.auth.decorators import login_required
-
 from .models import ContactMessage
 from django.core.mail import send_mail
 from django.views.decorators.csrf import csrf_exempt
@@ -20,6 +19,7 @@ def index(request):
     querysetCta = Cta.objects.all()
     querysetAboutus = Aboutus.objects.all() 
     querysetFaq = Faq.objects.all()
+    querysetGallery = Gallery.objects.all()
 
 
     context = {
@@ -27,6 +27,7 @@ def index(request):
         'ctas': querysetCta,
         'aboutuss': querysetAboutus,
         'faqs': querysetFaq,
+        'gallerys' :querysetGallery,
         'page_name': 'Gjimnazi',
     }
 
@@ -56,7 +57,7 @@ def contact(request):
         subject = 'Gjimnazi Contact Notification'
         body = f'Name: {name}\nEmail: {email}\nMessage: {message}'
         from_email = 'bulzaabdilii@gmail.com'  # Update with your email
-        to_email = ['agoonn98@gmail.com']  # Update with recipient email(s)
+        to_email = ['nesrine.g.abdili@gmail.com']  # Update with recipient email(s)
         
         send_mail(subject, body, from_email, to_email, fail_silently=False)
         

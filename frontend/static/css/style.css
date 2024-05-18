@@ -1450,14 +1450,6 @@ section {
 --------------------------------------------------------------*/
 
 
-.gallery .gallery-img{ 
-  border-radius: 40px;
-}
-
-.gallery .gallery{
-  margin: 0 3px;
-}
-
 
 
 @media (max-width: 767px) {
